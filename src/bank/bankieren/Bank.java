@@ -31,7 +31,7 @@ public class Bank implements IBank {
 		IRekeningTbvBank account = new Rekening(nieuwReknr, klant, Money.EURO);
 		accounts.put(nieuwReknr,account);
 		nieuwReknr++;
-		return nieuwReknr-1;
+		return nieuwReknr -1;
 	}
 
 	private IKlant getKlant(String name, String city) {
