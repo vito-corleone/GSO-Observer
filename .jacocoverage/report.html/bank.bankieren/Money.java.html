@@ -23,13 +23,13 @@ public class Money implements Serializable, Comparable&lt;Money&gt; {
 	 * @throws RuntimeException
 	 *             als currency een lege string is
 	 */
-<span class="nc" id="L26">	public Money(long cents, String currency) {</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">		if (currency.equals(&quot;&quot;))</span>
+<span class="fc" id="L26">	public Money(long cents, String currency) {</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">		if (currency.equals(&quot;&quot;))</span>
 <span class="nc" id="L28">			throw new RuntimeException(&quot;currency may not be the empty string&quot;);</span>
 
-<span class="nc" id="L30">		this.cents=cents;</span>
-<span class="nc" id="L31">		this.currency = currency;</span>
-<span class="nc" id="L32">	}</span>
+<span class="fc" id="L30">		this.cents=cents;</span>
+<span class="fc" id="L31">		this.currency = currency;</span>
+<span class="fc" id="L32">	}</span>
 
 	/**
 	 * 
@@ -47,7 +47,7 @@ public class Money implements Serializable, Comparable&lt;Money&gt; {
 	 *         &lt;b&gt;false&lt;/b&gt;
 	 */
 	public boolean isPositive() {
-<span class="nc bnc" id="L50" title="All 2 branches missed.">		return cents &gt; 0;</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">		return cents &gt; 0;</span>
 	}
 
 	public String getCurrency() {

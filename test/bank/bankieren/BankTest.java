@@ -72,21 +72,67 @@ public class BankTest {
     /**
      * Test of maakOver method, of class Bank.
      */
-    @Test
-    public void testMaakOver() throws RuntimeException, NumberDoesntExistException {
+    @Test (expected=RuntimeException.class)
+    public void testMaakOverRunTimeException() throws NumberDoesntExistException {
         System.out.println("maakOver");
-        int source = 0;
-        int destination = 0;
+        // test for RunTimeException
+        int source = 1;
+        int destination = 1;
         Money money = new Money(100, "euro");
         Bank instance = new Bank("Rabobank");
         boolean expResult = false;
-        boolean result = instance.maakOver(source, destination, money);        
-        assertEquals(expResult, result);
+        instance.maakOver(source, destination, money);       
+        
+        //test for negative moneny, RunTimeException
         money = new Money(-100, "euro");
         source = 1;
-        result = instance.maakOver(source, destination, money);
-        assertEquals(expResult, result);
+        instance.maakOver(source, destination, money);        
+        
+        //Test source account is null
+        instance.maakOver(1, destination, money);       
+        
+        // money negative    
+        money = new Money (100, "euro");
+        boolean result = instance.maakOver(1, destination, money); 
+        assertEquals(false, result);      
+              
     }
+    
+     @Test 
+    public void testMaakOver() throws NumberDoesntExistException {
+        System.out.println("maakOver");
+        int source = 0;
+        int destination = 1;
+        Money money = new Money(100, "euro");
+        Bank instance = new Bank("Rabobank");        
+        
+        // money negative            
+        boolean result = instance.maakOver(source, destination, money); 
+        assertEquals(true, result);
+        
+        
+        
+//        // destination account null    
+//        money = new Money (100, "euro");
+//        result = instance.maakOver(1, -1, money); 
+//        assertEquals(false, result);        
+    }
+    
+    // test for NumberDoesntExistException
+    @Test (expected=NumberDoesntExistException.class)
+    public void testMaakOverNumberDoesntExistException() throws NumberDoesntExistException {
+        System.out.println("maakOver");
+        int source = 1;
+        int destination = 3;
+        Money money = new Money(100, "euro");
+        Bank instance = new Bank("Rabobank");
+        boolean expResult = false;             
+        
+        //Test source account is null
+        instance.maakOver(1, destination, money);          
+    }
+    
+    
 
     /**
      * Test of getName method, of class Bank.
