@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author Vito Corleone
  */
 public class BankTest {
-    
+
     public BankTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,15 +43,20 @@ public class BankTest {
      */
     @Test
     public void testOpenRekening() {
-        System.out.println("openRekening");
+
+        Bank instance = new Bank("Rabobank");
+        int expResult = -1;
         String name = "";
         String city = "";
-        Bank instance = null;
-        int expResult = 0;
         int result = instance.openRekening(name, city);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        expResult = 100000000;
+        name = "Loek";
+        city = "Roermond";
+        result = instance.openRekening(name, city);
+        assertEquals(expResult, result);
+
     }
 
     /**
@@ -80,7 +85,7 @@ public class BankTest {
         Money money = new Money(100, "euro");
         Bank instance = new Bank("Rabobank");
         boolean expResult = false;
-        boolean result = instance.maakOver(source, destination, money);        
+        boolean result = instance.maakOver(source, destination, money);
         assertEquals(expResult, result);
         money = new Money(-100, "euro");
         source = 1;
@@ -97,8 +102,8 @@ public class BankTest {
         Bank instance = new Bank("Rabobank");
         String expResult = "Rabobank";
         String result = instance.getName();
-        assertEquals(expResult, result);      
-        
+        assertEquals(expResult, result);
+
     }
-    
+
 }
