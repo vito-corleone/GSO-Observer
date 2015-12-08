@@ -89,7 +89,7 @@ public class BankTest {
         // Source succes FALSE
         money = new Money(100000000, "€");
         result = instance.maakOver(source, destination, money);
-        assertEquals(true, result);
+        assertEquals(false, result);
     }
 
     /**
