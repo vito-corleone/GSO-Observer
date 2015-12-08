@@ -64,14 +64,14 @@ public class BankTest {
      */
     @Test
     public void testGetRekening() {
-        System.out.println("getRekening");
-        int nr = 0;
-        Bank instance = null;
-        IRekening expResult = null;
-        IRekening result = instance.getRekening(nr);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Bank instance = new Bank("Rabobank");
+        instance.openRekening("Loek", "Roermond");
+
+        int expResult = 100000000;
+        IRekening result = instance.getRekening(expResult);
+
+        
+        assertEquals(expResult, result.getNr());
     }
 
     /**
