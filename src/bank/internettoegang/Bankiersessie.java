@@ -17,16 +17,26 @@ public class Bankiersessie extends UnicastRemoteObject implements
 	private long laatsteAanroep;
 	private int reknr;
 	private IBank bank;
+        private long geldigheidsduur = GELDIGHEIDSDUUR;
 
 	public Bankiersessie(int reknr, IBank bank) throws RemoteException {
 		laatsteAanroep = System.currentTimeMillis();
 		this.reknr = reknr;
-		this.bank = bank;
-		
+		this.bank = bank;	
 	}
 
+        /**
+         * Ten behoeve van de unit test waarbij de geldigheid van een sessie kan worden getest is er gekozen om een SETTER voor de geldigheid
+         * te maken zodat de tijd om te wachten kan worden beinvloed         * 
+         * @Author Kamil Wasylkiewicz
+         * @param geldigheidsduur de nieuwe geldiheidsduur
+         */
+        public void setGeldigheidsDuur(long geldigheidsduur){
+            this.geldigheidsduur = geldigheidsduur;
+        }
+        
 	public boolean isGeldig() {
-		return System.currentTimeMillis() - laatsteAanroep < GELDIGHEIDSDUUR;
+		return System.currentTimeMillis() - laatsteAanroep < geldigheidsduur;
 	}
 
 	@Override
