@@ -9,6 +9,8 @@ import bank.bankieren.Money;
 
 import fontys.util.InvalidSessionException;
 import fontys.util.NumberDoesntExistException;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 public class Bankiersessie extends UnicastRemoteObject implements
 		IBankiersessie {
