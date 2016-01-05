@@ -1,4 +1,4 @@
-package fontys.observer;
+package FontysObserver;
 
 import java.rmi.*;
 

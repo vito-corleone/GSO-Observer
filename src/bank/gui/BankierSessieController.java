@@ -9,7 +9,7 @@ import bank.bankieren.IRekening;
 import bank.bankieren.Money;
 import bank.internettoegang.IBalie;
 import bank.internettoegang.IBankiersessie;
-import fontys.observer.RemotePropertyListener;
+import FontysObserver.RemotePropertyListener;
 import fontys.util.InvalidSessionException;
 import fontys.util.NumberDoesntExistException;
 import java.beans.PropertyChangeEvent;
